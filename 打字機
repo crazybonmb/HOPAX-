@@ -1,0 +1,38 @@
+#latter = str(input())
+lovely =input()
+import re
+from ufl import replace
+
+def first_letter(lovely):
+    m = re.search(r'[a-z]', lovely)
+    if m is not None:
+        return m.start()
+    return -1
+
+
+i = first_letter(lovely)
+
+new_string = lovely[i:]
+
+len_new_string = len(new_string)
+
+#變數 字數\
+
+
+for a in range(len_new_string):
+    
+    if new_string[a] =='+':
+        final_string = new_string.replace(new_string[a],new_string[a-1])
+        
+     
+    elif new_string[a] =='-':
+    
+        final_string2 = final_string.replace(new_string[a-1:a+1],"")
+        
+
+    elif new_string[a] =='*':
+        c = final_string2.find('*')
+        d = len(final_string2)
+        final_string3 = final_string2.replace(new_string[a],final_string2[0:c])
+        print(final_string3)
+    
