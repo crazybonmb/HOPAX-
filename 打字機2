@@ -1,5 +1,3 @@
-#latter = str(input("GET ME A STRING:"))
-
 import re
 from ufl import replace
 
@@ -8,34 +6,44 @@ def first_letter():
     m = re.search(r'[a-z]', lovely,re.I)
     if m is not None:
         return lovely[m.start():]
-    return nomatch
+    return lovely[m.start():]
 
 i = first_letter()
-print(i)
+
 
 # print(first_letter()[2])
 # new_string = lovely[i:]
 
 # len_new_string = len(new_string)
 
-#變數 字數\
-
+#變數 字數
 final_string = ""
 for a in range(len(i)):
     
     if first_letter()[a] =='+':
         
-        final_string += first_letter().replace(i[a],i[a-1])
-        print(final_string)
+        final_string = i.replace(i[a],i[a-1])
+        if len(final_string)== 0 :
+            final_string = i
+           
+
 
     elif first_letter()[a] =='-':
     
-        final_string += first_letter().replace(first_letter()[a-1:a+1],"")
-        print(final_string)
+        final_string = final_string.replace(i[a-1:a+1],"")
+        
+        if  len(final_string) == 0 :
+            final_string = i
+
     elif first_letter()[a] =='*':
         c = final_string.find('*')
-        d = len(final_string)
-        final_string += final_string.replace(first_letter()[a],first_letter()[0:c])
-    else:
         print(final_string)
+        print(c)
+        d = len(final_string)
+        final_string = final_string.replace(final_string[c],final_string[0:c-1])
+        if  len(final_string) == 0 :
+            final_string = i
+else:
+    print(final_string)
+    
     
