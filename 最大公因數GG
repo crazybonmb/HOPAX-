@@ -1,0 +1,27 @@
+a = input().split()
+c = input().split()
+d = a+c
+print(d)
+for j in range(len(d)):
+    b =int(d[j])
+    jason=[]
+        
+    for i in range(1,b+1) :
+        if int(d[j]) % i == 0: 
+            jason.append(i)
+            jason.insert(0,)
+            print(jason)
+#c=['A','B','C']
+                # jason.insert(0,c[j])
+                # print (jason)
+        else:
+            pass
+    # c =['A','B','C']
+    # jason.insert(0,d[j])
+    # print (jason)
+
+    
+    # if jason[0] == a[0] & jason[0] == c [0] :
+    #     print()
+        #     jason += jason
+        #     print(jason)
