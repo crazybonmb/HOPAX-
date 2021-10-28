@@ -1,0 +1,14 @@
+
+
+ans = list(input('correct ans:'))
+member = int(input('number of student:'))
+ans_student  = []
+for b in range(member):
+    c  = input().split()
+    
+    ans_student.append(c[0])
+    c.remove(c[0])
+    print(type(c))
+    d = list(c[0:len(c)])
+    ans_student.append(d)
+    print(d)
