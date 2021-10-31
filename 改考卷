@@ -1,14 +1,23 @@
+def ans_of_student(c):
+    ans_student = ''.join(c)
+    ans_student = list(ans_student)
+    return ans_student
 
-
-ans = list(input('correct ans:'))
+ans = input('correct ans:').split()
 member = int(input('number of student:'))
-ans_student  = []
+student  = []
+number_ans = 0
+corrent_rate = []
 for b in range(member):
     c  = input().split()
-    
-    ans_student.append(c[0])
+    student.append(c[0])
     c.remove(c[0])
-    print(type(c))
-    d = list(c[0:len(c)])
-    ans_student.append(d)
-    print(d)
+    c = ans_of_student(c)
+    ans = ans_of_student(ans)
+for d in range(len(ans)):
+    if ans[d] == c[d]:  
+        number_ans += 1
+        corrent_rate.insert(d,'T')
+    else:
+        corrent_rate.insert(d,'F')
+print(corrent_rate)
