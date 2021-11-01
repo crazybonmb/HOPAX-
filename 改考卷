@@ -13,11 +13,18 @@ for b in range(member):
     student.append(c[0])
     c.remove(c[0])
     c = ans_of_student(c)
-    ans = ans_of_student(ans)
-for d in range(len(ans)):
-    if ans[d] == c[d]:  
-        number_ans += 1
-        corrent_rate.insert(d,'T')
-    else:
-        corrent_rate.insert(d,'F')
-print(corrent_rate)
+    ans = ans_of_student(ans)   
+
+
+for d in range(member):
+    for e in range(len(ans)):
+        if ans[e] == c[e]:
+            print(c)  
+            number_ans += 1
+            corrent_rate.insert(e,'T')
+            print(f'{student[d]} {100/len(ans)*number_ans}')
+        else:
+            corrent_rate.insert(e,'F')
+print(f'{student[b]} {100/len(ans)*number_ans}')
+print(number_ans)
+
