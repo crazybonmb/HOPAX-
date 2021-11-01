@@ -4,27 +4,40 @@ def ans_of_student(c):
     return ans_student
 
 ans = input('correct ans:').split()
+ans = ans_of_student(ans)
 member = int(input('number of student:'))
 student  = []
 number_ans = 0
 corrent_rate = []
-for b in range(member):
+corrent_rate_ans = []
+book = 0
+
+for d in range(member):
     c  = input().split()
     student.append(c[0])
     c.remove(c[0])
     c = ans_of_student(c)
-    ans = ans_of_student(ans)   
+    print(ans)
+    print(c)
 
-
-for d in range(member):
     for e in range(len(ans)):
-        if ans[e] == c[e]:
-            print(c)  
-            number_ans += 1
-            corrent_rate.insert(e,'T')
-            print(f'{student[d]} {100/len(ans)*number_ans}')
+       
+        if ans[e] == c[e]:            
+            corrent_rate.insert(e,1)
+            number_ans = corrent_rate.count(1) 
         else:
-            corrent_rate.insert(e,'F')
-print(f'{student[b]} {100/len(ans)*number_ans}')
-print(number_ans)
+            corrent_rate.insert(e,0)
+            number_ans = corrent_rate.count(1) 
+    if len(corrent_rate) == len(ans) :
+        print(corrent_rate)
+        corrent_rate_ans+= corrent_rate
+        print(corrent_rate_ans)
+        print(f'{student[d]} {100/len(ans)*number_ans}')
+        corrent_rate =[] 
 
+for i in range(member):
+    for j in range(i*len(ans)):
+        book += corrent_rate[j]
+        print(book)
+# print(f'{student[b]} {100/len(ans)*number_ans}')
+# print(number_ans)
