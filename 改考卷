@@ -1,4 +1,4 @@
-def ans_of_student(c):
+def ans_of_student(c):#拆開數字
     ans_student = ''.join(c)
     ans_student = list(ans_student)
     return ans_student
@@ -10,9 +10,10 @@ student  = []
 number_ans = 0
 corrent_rate = []
 corrent_rate_ans = []
-book = 0
-
-for d in range(member):
+corrent = 0
+corrent_1 = []
+corrent_2 = []
+for d in range(member):#分數計算
     c  = input().split()
     student.append(c[0])
     c.remove(c[0])
@@ -23,21 +24,29 @@ for d in range(member):
     for e in range(len(ans)):
        
         if ans[e] == c[e]:            
-            corrent_rate.insert(e,1)
-            number_ans = corrent_rate.count(1) 
+            corrent_rate.insert(e,'1')
+            number_ans = corrent_rate.count('1') 
         else:
-            corrent_rate.insert(e,0)
-            number_ans = corrent_rate.count(1) 
+            corrent_rate.insert(e,'0')
+            number_ans = corrent_rate.count('1') 
     if len(corrent_rate) == len(ans) :
         print(corrent_rate)
-        corrent_rate_ans+= corrent_rate
+        corrent_rate_ans.append(corrent_rate) 
+        
         print(corrent_rate_ans)
-        print(f'{student[d]} {100/len(ans)*number_ans}')
+        print(f'{student[d]} {int(100/len(ans)*number_ans)}')
         corrent_rate =[] 
 
-for i in range(member):
-    for j in range(i*len(ans)):
-        book += corrent_rate[j]
-        print(book)
-# print(f'{student[b]} {100/len(ans)*number_ans}')
-# print(number_ans)
+for i in range(member):#計算每一題的正確率
+    corrent = 0
+    for j in range(len(ans)): 
+        if corrent_rate_ans[i][j] == '1':
+            corrent += 1
+        else:
+            continue
+    print(corrent)
+    corrent_1.append(corrent)
+
+for l in range(len(ans)):#計算準確率
+    corrent_2.append(corrent_1[l]/len(ans)*100)
+    print(str(corrent_2[l]) + '%',end = '')
