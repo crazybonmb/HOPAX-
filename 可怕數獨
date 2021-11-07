@@ -1,0 +1,64 @@
+ans_T_F=[]
+anylist=[]
+def find_number(anylist):
+    dict={}
+    for i in anylist:
+        if i not in dict:
+            dict[i] =1
+        else :
+            dict[i] +=1
+    try:    
+        del dict['0']
+    except:
+        pass
+    anylist= list(dict.values())
+    global ans_T_F
+    if all (j == 1 for j in anylist) == 1:
+        ans_T_F.append('True')  
+    
+    else:
+        ans_T_F.append('False')
+b =[]
+c = 0
+seq_1 =[]
+seq_1_1 =[]
+seq_2 =[]
+seq_2_1 =[]
+seq_3 =[]
+seq_3_1 =[]
+
+for a in range(0,9):
+    number = input().split(',')
+    b.append(number)
+    find_number(b[a])
+    c = list(zip(*b))[a]
+    find_number(c)
+for k in range(9):  
+    for i in range(3):
+        seq_1.append(b[a][i])
+        seq_2.append(b[a][i+3])
+        seq_3.append(b[a][i+6])
+    seq_1_1.append(seq_1[a])
+    seq_2_1.append(seq_2[a])
+    seq_3_1.append(seq_3[a])
+find_number(seq_1_1)
+find_number(seq_2_1)
+find_number(seq_3_1)
+
+count=  ans_T_F.count('False')
+
+if count > 0 :
+    print('False')
+else:
+    seq_1_1.insert(seq_1[9:18])
+    seq_2_1.append(seq_2[9:18])
+    seq_3_1.append(seq_3[9:18])
+    find_number(seq_1_1)
+    find_number(seq_2_1)
+    find_number(seq_3_1)
+    if count > 0:
+        print(count)
+        print('False')
+    else:
+        print(count)
+        print('True')
