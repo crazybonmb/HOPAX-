@@ -1,0 +1,10 @@
+a = [chr(i) for i in range(97,123)]
+b =[]
+
+sum = 0
+b= input().split()
+d =[]
+for i in range(len(b)):
+    c = ''.join(b[i])
+    d .append(tuple(c))
+print(d[1])
